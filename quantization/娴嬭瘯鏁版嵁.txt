@@ -1,0 +1,27 @@
+def doCloseToken(key):
+    workingNode = gv.get_value('work-' + key)
+    if (workingNode != None):
+        if (workingNode.socket):
+            writeData = b'(*&CLOSE&*)(*-{key:"' + key + '"}-*)'
+            workingNode.wfile.write(writeData)
+
+#释放会话
+def doReleaseToken(key):
+    workingNode = gv.get_value('work-' + key)
+    if (workingNode != None):
+        if (workingNode.socket):
+            writeData = b'(*&RELEASE&*)(*-{key:"'+key+'"}-*)'
+            workingNode.wfile.write(writeData)
+
+
+#发送数据
+def doWriteData(key, data):
+
+
+
+F:/Quant/quantization/script/strategy.py
+http://192.168.1.183:808/InfoOpSys/market/kline?symbol=WALL_000001.SS&time=1495584000000&sort=desc&resolution=9&count=200
+(*&CONNECT&*)(*-{"key":"key1234","file":"F:/Quant/quantization/script/strategy.py","symbol":"WALL_000001.SS", "sort":"desc", "startTime":1495584000000, "endTime":1495584000000,"resolution":9,"count":200}-*)
+
+
+(*&CONNECT&*)(*-{"key":"key1234","file":"F:/Quant/quantization/script/strategy.py","symbol":"WALL_000007.SZ", "sort":"desc", "startTime":1495584000000,"Type":1,"endTime":1495584000000,"resolution":9,"count":200}-*)
